@@ -1,9 +1,13 @@
-const express = require("express")
-const app = express()
+// app.js
+const express = require("express");
+const app = express();
+const authorRouter = require("./routes/authorRouter");
 
-app.get("/",(req,res)=>res.send("Hello, World!"))
 
-const PORT = 3000
-app.listen(PORT,()=>{
-    console.log(`My first Express app - listening on port ${PORT}`)
-})
+app.use("/authors", authorRouter);
+
+
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`My first Express app - listening on port ${PORT}!`);
+});
